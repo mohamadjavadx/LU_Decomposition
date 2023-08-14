@@ -2,4 +2,4 @@
 پروژه دانشگاه: محاسبه دترمینان با روش تجزیه UL
 #
 
-لینک دانلود اپ: https://github.com/mohamadjavadx/LU_Decomposition/blob/master/app-debug.apk
+لینک دانلود اپ: https://we.tl/t-MiSh7r7BeN
