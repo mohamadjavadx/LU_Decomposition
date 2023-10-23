@@ -12,10 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Views"
         tools:targetApi="31">
-<!--        <service-->
-<!--            android:name=".widget.ClockUpdateService"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="true"></service>-->
 
         <activity
             android:name=".MainActivity"
@@ -29,18 +25,6 @@
             </intent-filter>
         </activity>
 
-<!--        <receiver-->
-<!--            android:name=".widget.ClockWidgetReceiver"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />-->
-<!--            </intent-filter>-->
-
-<!--            <meta-data-->
-<!--                android:name="android.appwidget.provider"-->
-<!--                android:resource="@xml/clock_widget_info" />-->
-<!--        </receiver>-->
-<!--        <receiver android:name="com.mohamadjavadx.views.widget.AlarmReceiver" />-->
     </application>
 
 </manifest>
