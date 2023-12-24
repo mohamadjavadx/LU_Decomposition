@@ -270,7 +270,7 @@ class MainActivity : ComponentActivity() {
                                                         }
                                                 )
                                             )
-                                            result.value = matrix.det().toString()
+                                            result.value = matrix.det().toInt().toString()
                                         }.onFailure {
                                             result.value = "failed"
                                         }
