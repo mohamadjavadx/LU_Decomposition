@@ -51,6 +51,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.mohamadjavadx.views.ui.theme.ViewsTheme
+import kotlin.math.roundToLong
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +59,7 @@ class MainActivity : ComponentActivity() {
 
         val minRow = 2
         val mSize = mutableStateOf(minRow)
-        val result = mutableStateOf("0.0")
+        val result = mutableStateOf("0")
 
         setContent {
             ViewsTheme {
@@ -185,7 +186,12 @@ class MainActivity : ComponentActivity() {
                                                     BasicTextField(
                                                         value = textStates[i][j].value,
                                                         onValueChange = {
-                                                            textStates[i][j].value = it
+                                                            val newText = it.text.filterIndexed { index, c ->
+                                                                (c.isDigit() || c == '-') && (index != 0 || c != '0')
+                                                            }
+                                                            textStates[i][j].value = it.copy(
+                                                                text = newText
+                                                            )
                                                         },
                                                         interactionSource = interactionSource,
                                                         singleLine = true,
@@ -255,14 +261,13 @@ class MainActivity : ComponentActivity() {
                                                                     if (j.value.text.isBlank()) {
                                                                         textStates[iIndex][jIndex].value =
                                                                             textStates[iIndex][jIndex].value.copy(
-                                                                                text = "0.0"
+                                                                                text = "0"
                                                                             )
                                                                         0.0
                                                                     } else {
                                                                         textStates[iIndex][jIndex].value =
                                                                             textStates[iIndex][jIndex].value.copy(
-                                                                                text = j.value.text.toDouble()
-                                                                                    .toString()
+                                                                                text = j.value.text
                                                                             )
                                                                         j.value.text.toDouble()
                                                                     }
@@ -270,7 +275,7 @@ class MainActivity : ComponentActivity() {
                                                         }
                                                 )
                                             )
-                                            result.value = matrix.det().toInt().toString()
+                                            result.value = matrix.det().roundToLong().toString()
                                         }.onFailure {
                                             result.value = "failed"
                                         }
