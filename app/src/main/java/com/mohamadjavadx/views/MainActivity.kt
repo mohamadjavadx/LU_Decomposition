@@ -187,7 +187,7 @@ class MainActivity : ComponentActivity() {
                                                         value = textStates[i][j].value,
                                                         onValueChange = {
                                                             val newText = it.text.filterIndexed { index, c ->
-                                                                (c.isDigit() || c == '-') && (index != 0 || c != '0')
+                                                                (c.isDigit() || c == '-')
                                                             }
                                                             textStates[i][j].value = it.copy(
                                                                 text = newText
@@ -267,7 +267,7 @@ class MainActivity : ComponentActivity() {
                                                                     } else {
                                                                         textStates[iIndex][jIndex].value =
                                                                             textStates[iIndex][jIndex].value.copy(
-                                                                                text = j.value.text
+                                                                                text = j.value.text.toInt().toString()
                                                                             )
                                                                         j.value.text.toDouble()
                                                                     }
